@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilian Imma | Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #fceef4;
+      color: #1e1e1e;
+      line-height: 1.6;
+    }
+    header {
+      background: #fceef4;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: #ff3399;
+    transition: width 0.3s ease;
+  }
+  nav a:hover {
+    color: #ff3399;
+  }
+  nav a:hover::after {
+    width: 100%;
+  }
+    
+    .hero-buttons {
+    display: flex;
+    gap: 20px;
+  }
+
+  .btn-learn,
+  .btn-hire {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .btn-learn {
+    background-color: #ff3399;
+    color: white;
+  }
+
+  .btn-hire {
+    background-color: #ff3399;
+    color: white;
+  }
+
+  .btn-learn:hover,
+  .btn-hire:hover {
+    background-color: #e02d87;
+    transform: scale(1.05);
+  }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 100px 50px;
+      background-color: #fceef4;
+    }
+    .hero-left {
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+      max-width: 60%;
+    }
+    .hero-text {
+      max-width: 100%;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .hero-text p {
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .btn-learn {
+      background-color: #ff3399;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .hero-socials {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      font-size: 20px;
+      margin-top: 10px;
+      padding-top: 5px;
+    }
+    .hero-socials a {
+      text-decoration: none;
+      color: #1e1e1e;
+    }
+    .hero-socials a:hover {
+      color: #ff3399;
+    }
+    .hero-right img {
+      max-width: 1000px;
+      height: auto;
+      border-radius: 50px;
+    }
+    .about {
+      background-color: white;
+      padding: 100px 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 60px;
+    }
+    .about-text {
+      max-width: 50%;
+    }
+    .about-text h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+    .about-text .subtext {
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .about-text .line {
+      width: 60px;
+      height: 3px;
+      background-color: #ff3399;
+      margin: 20px 0;
+    }
+    .about-text p {
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .about-image {
+      position: relative;
+    }
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100%;
+      height: 100%;
+      background-color: #ff3399;
+      border-radius: 20px;
+      z-index: 0;
+    }
+    .about-image img {
+      position: relative;
+      max-width: 400px;
+      border-radius: 20px;
+      z-index: 1;
+    }
+    .projects {
+    background: #fde8f0;
+    padding: 100px 50px;
+    text-align: center;
+  }
+  .projects h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .projects p {
+    color: #555;
+    margin-bottom: 40px;
+  }
+  .project-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .project-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  .project-card img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .progress-bar {
+    background: #eee;
+    border-radius: 10px;
+    height: 10px;
+    width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background-color: #ff3399;
+    border-radius: 10px;
+  }
+  .progress-percent {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #333;
+    text-align: right;
+    width: 100%;
+  }
+  .btn-details {
+    margin-top: 15px;
+    background-color: #1e1e1e;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+  }
+  .btn-details:hover {
+    background-color: #ff3399;
+  }
+
+    .blog-section {
+    background: #fde8f0;
+    padding: 100px 50px;
+    text-align: center;
+  }
+  .blog-section h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+  .blog-section p {
+    color: #555;
+    margin-bottom: 40px;
+  }
+  .blog-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  .blog-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    flex: 1 1 calc(30% - 40px);
+    min-width: 280px;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .blog-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 20px;
+  }
+  .blog-card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  .blog-card p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .blog-card .read-more {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  .blog-card .read-more:hover {
+    background-color: #ff3399;
+    color: white;
+    border-color: #ff3399;
+  }
+
+  .contact-section {
+    background: white;
+    padding: 100px 50px;
+    text-align: center;
+  }
+  .contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .contact-section p {
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-section .line {
+    width: 60px;
+    height: 3px;
+    background-color: #ff3399;
+    margin: 20px auto;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .contact-form input {
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  .contact-form button {
+    background-color: #ff3399;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  .contact-form button:hover {
+    background-color: #e62e88;
+  }
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Lilian Imma</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <div class="hero-socials">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-reddit"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+      <div class="hero-text">
+        <h1 class="typing-text">I'm a Web Developer & Aspiring Data Scientist<br>Lilian Imma</h1>
+        <p>Hi, I'm Lilian Imma, a junior computer science student with a growing passion for data science and web development. I'm currently learning and building cool stuff while exploring the world of data, design, and code. Welcome to my little space on the web!</p>
+         <div class="hero-buttons">
+        <button class="btn-learn">Learn more</button>
+        <button class="btn-hire">Let's Connect</button>
+      </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img src="C:\Users\Lilian Imma W\Downloads\20250407_2349_Stylish Orange Braids_simple_compose_01jr907gdbffz9n9zjwpcsc2pr-Photoroom.png" alt="Lilian Imma">
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-text">
+      <h2>About Me</h2>
+      <p class="subtext">Developing With Passion While Exploring the World of Tech</p>
+      <div class="line"></div>
+      <h2>Developing With a Passion<br>While Exploring The World.</h2>
+      <p>Hi! I'm Lilian Imma, a junior computer science student with a strong interest in web development and data science. I’m passionate about creating clean, responsive websites and continuously expanding my skills in coding, design, and data.
+          I believe in learning by doing, and I’m always exploring new technologies to grow as a developer and future data scientist. Whether it's building websites or diving into data, I enjoy turning ideas into real, functional projects.
+        </p>
+      <p> Currently, I'm on a journey to build a solid foundation in tech and contribute to innovative, meaningful work—one line of code at a time.</p>
+    </div>
+    <div class="about-image">
+      <img src= "images.jpg" alt="Workspace">
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <h2>Projects</h2>
+    <p>Here are a few highlights of my work as a Data Scientist and Web Designer.</p>
+    <div class="project-grid">
+      <div class="project-card">
+        <img src="/mnt/data/image.png" alt="Library Management Screenshot">
+        <h3>Library Management System</h3>
+        <p>Allows for addition of books as well as borrowing.</p>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 100%"></div></div>
+        <div class="progress-percent">100% Complete</div>
+        <a href="#" class="btn-details">See Progress</a>
+      </div>
+      <div class="project-card">
+        <img src="dashboard.jpg" alt="Data Visualization Dashboard">
+        <h3>Data Visualization Dashboard</h3>
+        <p>Interactive dashboards to explore and visualize large datasets.</p>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 85%"></div></div>
+        <div class="progress-percent">85% Complete</div>
+        <a href="#" class="btn-details">See Progress</a>
+      </div>
+      <div class="project-card">
+        <img src="e-commerce.png" alt="E-commerce Website">
+        <h3>E-commerce Website</h3>
+        <p>Modern web design for online shopping with payment integration.</p>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 70%"></div></div>
+        <div class="progress-percent">70% Complete</div>
+        <a href="#" class="btn-details">See Progress</a>
+      </div>
+      <div class="project-card">
+        <img src="MLM.png" alt="Machine Learning Model">
+        <h3>Machine Learning Model</h3>
+        <p>Built predictive models using Python for real-world data problems.</p>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 50%"></div></div>
+        <div class="progress-percent">50% Complete</div>
+        <a href="#" class="btn-details">See Progress</a>
+      </div>
+      <div class="project-card">
+        <img src="portfolio.png" alt="Portfolio Website">
+        <h3>Portfolio Website</h3>
+        <p>Clean and responsive portfolio to showcase my work and skills.</p>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 100%"></div></div>
+        <div class="progress-percent">100% Complete</div>
+        <a href="#" class="btn-details">See Progress</a>
+      </div>
+      <div class="project-card">
+        <img src="data.webp" alt="Data Cleaning Toolkit">
+        <h3>Data Cleaning Toolkit</h3>
+        <p>Automated data preprocessing and cleaning scripts using Pandas.</p>
+        <div class="progress-bar"><div class="progress-bar-fill" style="width: 60%"></div></div>
+        <div class="progress-percent">60% Complete</div>
+        <a href="#" class="btn-details">See Progress</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-section" id="blog">
+    <h2>Blog</h2>
+    <p>My journey and thought process as I continue working towards my goals.</p>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="debug.png" alt="UI/UX Design Icon">
+        <h3>Debugging Python</h3>
+        <p>Debugging a recursion error felt like playing hide and seek with logic.
+        It was frustrating, but once I visualized the call stack, everything clicked into place.</p>
+        <a href="#" class="read-more"><i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="blog-card">
+        <img src="jigsaw.jpg" alt="Digital Marketing Icon">
+        <h3>SQL Jigsaw?!?</h3>
+        <p>Ran my first complex JOIN query—data finally came together.
+            It felt like assembling pieces of a jigsaw puzzle and seeing the big picture.</p>
+        <a href="#" class="read-more"><i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="blog-card">
+        <img src="magic.jpg" alt="Web Development Icon">
+        <h3>JS Magic Trick</h3>
+        <p>Built a to-do list with JavaScript—feels good to check things off!
+            Seeing real interaction on the screen was a moment of magic.</p>
+        <a href="#" class="read-more"><i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <form class="contact-form">
+    <input type="text" name="name" placeholder="Enter your name" required>
+    <input type="email" name="email" placeholder="Enter email address" required>
+    <input type="tel" name="phone" placeholder="Enter phone number" required>
+    <button type="submit">Contact Me</button>
+  </form>
+  
+  <script src="scripts.js"></script>
+</body>
+
+<footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 Lilian Imma. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-reddit"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </footer>
+  
+  <style>
+    .footer {
+      background-color: #fceef4;
+      text-align: center;
+      padding: 30px 20px;
+      color: #555;
+      font-size: 14px;
+      margin-top: 50px;
+    }
+    .footer-socials {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      font-size: 18px;
+    }
+    .footer-socials a {
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-socials a:hover {
+      color: #ff3399;
+    }
+  </style>
+  
+  
+</html>
