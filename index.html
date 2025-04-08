@@ -399,6 +399,11 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <label class="toggle-switch">
+  <input type="checkbox" id="darkToggle">
+  <span class="slider"></span>
+</label>
+
   </header>
 
   <section class="hero" id="home">
@@ -522,13 +527,15 @@
       </div>
     </div>
   </section>
-
-  <form class="contact-form">
+  <section id=contact>
+    <form class="contact-form">
     <input type="text" name="name" placeholder="Enter your name" required>
     <input type="email" name="email" placeholder="Enter email address" required>
     <input type="tel" name="phone" placeholder="Enter phone number" required>
     <button type="submit">Contact Me</button>
   </form>
+  </section>
+  
   
   <script src="scripts.js"></script>
 </body>
