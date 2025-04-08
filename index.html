@@ -29,82 +29,83 @@
       font-size: 24px;
       font-weight: 700;
     }
-    nav ul {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-  }
-  nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    position: relative;
-    transition: color 0.3s ease;
-  }
-  nav a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background-color: #ff3399;
-    transition: width 0.3s ease;
-  }
-  nav a:hover {
-    color: #ff3399;
-  }
-  nav a:hover::after {
-    width: 100%;
-  }
-    /* Toggle switch */
+   nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-right: 80px;
+  padding-right: 20px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background-color: #ff3399;
+  transition: width 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff3399;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+ /* Toggle switch as moon/sun icon */
 .toggle-switch {
   position: absolute;
   top: 20px;
   right: 20px;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #333;
+  border-radius: 50%;
+  cursor: pointer;
   z-index: 1000;
 }
 
-.toggle-switch input {
-  display: none;
+.toggle-switch i {
+  color: #fff;
+  font-size: 18px;
+  transition: transform 0.3s ease;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  background-color: #ccc;
-  border-radius: 24px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: 0.4s;
+body.dark-mode .toggle-switch i::before {
+  content: "\f185"; /* sun icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 
-.slider::before {
-  content: "";
-  position: absolute;
-  height: 18px;
-  width: 18px;
-  background-color: white;
-  border-radius: 50%;
-  left: 3px;
-  bottom: 3px;
-  transition: 0.4s;
+.toggle-switch i::before {
+  content: "\f186"; /* moon icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
 }
 
-input:checked + .slider {
-  background-color: #333;
+/* Adjust nav to give room for toggle */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin-right: 60px;
 }
 
-input:checked + .slider::before {
-  transform: translateX(26px);
-}
-
-/* Dark mode styles */
+/* Dark mode base styling */
 body.dark-mode {
   background-color: #121212;
   color: #f3f3f3;
@@ -113,7 +114,9 @@ body.dark-mode {
 body.dark-mode header,
 body.dark-mode .projects,
 body.dark-mode .blog-section,
-body.dark-mode .contact-section {
+body.dark-mode .contact-section,
+body.dark-mode .about,
+body.dark-mode .hero {
   background-color: #1e1e1e;
   color: #f3f3f3;
 }
@@ -133,6 +136,7 @@ body.dark-mode nav a {
 body.dark-mode nav a:hover {
   color: #ff3399;
 }
+
 
     
     .hero-buttons {
