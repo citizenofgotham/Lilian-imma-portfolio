@@ -57,6 +57,83 @@
   nav a:hover::after {
     width: 100%;
   }
+    /* Toggle switch */
+.toggle-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  z-index: 1000;
+}
+
+.toggle-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  background-color: #ccc;
+  border-radius: 24px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  background-color: white;
+  border-radius: 50%;
+  left: 3px;
+  bottom: 3px;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:checked + .slider::before {
+  transform: translateX(26px);
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f3f3f3;
+}
+
+body.dark-mode header,
+body.dark-mode .projects,
+body.dark-mode .blog-section,
+body.dark-mode .contact-section {
+  background-color: #1e1e1e;
+  color: #f3f3f3;
+}
+
+body.dark-mode .project-card,
+body.dark-mode .blog-card,
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form button {
+  background-color: #2a2a2a;
+  color: white;
+}
+
+body.dark-mode nav a {
+  color: #ddd;
+}
+
+body.dark-mode nav a:hover {
+  color: #ff3399;
+}
+
     
     .hero-buttons {
     display: flex;
