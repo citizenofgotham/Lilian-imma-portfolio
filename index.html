@@ -71,15 +71,17 @@ nav a:hover::after {
 }
 
 .toggle-switch input {
-  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
 .slider {
-  background-color: #333;
+  background-color: #ccc;
   border-radius: 34px;
-  position: absolute;
-  inset: 0;
-  transition: 0.4s;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.4s;
 }
 
 .thumb {
@@ -94,23 +96,19 @@ nav a:hover::after {
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  transition: 0.4s;
-  box-shadow: 0 0 4px rgba(0,0,0,0.2);
+  transition: transform 0.4s;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Move thumb on toggle */
-.toggle-switch input:checked + .slider .thumb {
+/* Checkbox checked styles */
+input:checked + .slider {
+  background-color: #333;
+}
+
+input:checked + .slider .thumb {
   transform: translateX(26px);
 }
 
-/* Change emoji on toggle */
-.toggle-switch input:checked + .slider .thumb::before {
-  content: '🌚';
-}
-
-.toggle-switch input:not(:checked) + .slider .thumb::before {
-  content: '🌞';
-}
 
 
 .hero-buttons {
@@ -458,13 +456,10 @@ body.dark-mode #contact {
 <label class="toggle-switch">
   <input type="checkbox" id="darkToggle">
   <span class="slider">
-    <span class="thumb">🌞</span>
+    <span class="thumb" id="emoji">🌞</span>
   </span>
 </label>
-
-
-
-  </header>
+</header>
 
   <section class="hero" id="home">
     <div class="hero-left">
