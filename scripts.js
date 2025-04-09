@@ -55,24 +55,19 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-const toggle = document.getElementById("darkToggle");
-
-toggle.addEventListener("change", () => {
-  document.body.classList.toggle("dark-mode");
-});
-
 const toggle = document.getElementById('darkToggle');
-const icon = document.querySelector('.icon');
+const emoji = document.getElementById('emoji');
 
 toggle.addEventListener('change', () => {
   if (toggle.checked) {
-    icon.textContent = '🌚'; // Show moon
+    emoji.textContent = '🌚'; // Moon emoji for dark mode
     document.body.classList.add('dark-mode');
   } else {
-    icon.textContent = '🌞'; // Show sun
+    emoji.textContent = '🌞'; // Sun emoji for light mode
     document.body.classList.remove('dark-mode');
   }
 });
+
 
 
   
