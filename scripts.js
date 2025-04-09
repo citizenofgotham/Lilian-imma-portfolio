@@ -61,4 +61,18 @@ toggle.addEventListener("change", () => {
   document.body.classList.toggle("dark-mode");
 });
 
+const toggle = document.getElementById('darkToggle');
+const icon = document.querySelector('.icon');
+
+toggle.addEventListener('change', () => {
+  if (toggle.checked) {
+    icon.textContent = '🌚'; // Show moon
+    document.body.classList.add('dark-mode');
+  } else {
+    icon.textContent = '🌞'; // Show sun
+    document.body.classList.remove('dark-mode');
+  }
+});
+
+
   
