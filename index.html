@@ -463,55 +463,56 @@ body.dark-mode span {
     border-color: #ff3399;
   }
 
-  .contact-section {
-    background: white;
-    padding: 100px 50px;
-    text-align: center;
-  }
-  .contact-section h2 {
-    font-size: 32px;
-    margin-bottom: 10px;
-  }
-  .contact-section p {
-    color: #555;
-    margin-bottom: 20px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .contact-section .line {
-    width: 60px;
-    height: 3px;
-    background-color: #ff3399;
-    margin: 20px auto;
-  }
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  .contact-form input {
-    padding: 15px 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 16px;
-  }
-  .contact-form button {
-    background-color: #ff3399;
-    color: white;
-    padding: 15px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background 0.3s ease;
-  }
-  .contact-form button:hover {
-    background-color: #e62e88;
-  }
+ /* Contact section as full page */
+#contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 100px 50px;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact .contact-form input {
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#contact .contact-form button {
+  background-color: #ff3399;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+#contact .contact-form button:hover {
+  background-color: #e62e88;
+}
+
+body.dark-mode #contact {
+  background-color: #1a1a1a;
+}
 
 
   </style>
