@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // TYPING EFFECT
   // ========================
   const textElement = document.querySelector(".typing-text");
-  const text = "I'm Web Developer Lilian Imma";
+  const text = "I'm Web Developer Lilian Imma & Aspiring Data Scientist";
   let index = 0;
 
   if (textElement) {
