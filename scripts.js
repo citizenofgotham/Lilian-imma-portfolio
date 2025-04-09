@@ -56,18 +56,17 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 const toggle = document.getElementById('darkToggle');
-const emoji = document.getElementById('emoji');
+  const emoji = document.getElementById('emoji');
 
-toggle.addEventListener('change', () => {
-  if (toggle.checked) {
-    emoji.textContent = '🌚'; // Moon emoji for dark mode
-    document.body.classList.add('dark-mode');
-  } else {
-    emoji.textContent = '🌞'; // Sun emoji for light mode
-    document.body.classList.remove('dark-mode');
-  }
-});
-
+  toggle.addEventListener('change', () => {
+    if (toggle.checked) {
+      emoji.textContent = '🌚';
+      document.body.classList.add('dark-mode');
+    } else {
+      emoji.textContent = '🌞';
+      document.body.classList.remove('dark-mode');
+    }
+  });
 
 
   
