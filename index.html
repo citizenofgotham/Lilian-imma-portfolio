@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    * {
+* {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -29,20 +29,107 @@
       font-size: 24px;
       font-weight: 700;
     }
-   nav ul {
+    nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background-color: #ff3399;
+    transition: width 0.3s ease;
+  }
+  nav a:hover {
+    color: #ff3399;
+  }
+  nav a:hover::after {
+    width: 100%;
+  }
+  /* Toggle switch styles */
+.toggle-switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  z-index: 1000;
+}
+
+.toggle-switch i::before {
+  content: "\f186"; /* moon icon */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #fff;
+}
+
+body.dark-mode .toggle-switch {
+  background: #eee;
+}
+
+body.dark-mode .toggle-switch i::before {
+  content: "\f185"; /* sun icon */
+  color: #111;
+}
+
+body.dark-mode {
+  background-color: #111;
+  color: #fff;
+}
+
+body.dark-mode header {
+  background-color: #111; /* or #1a1a1a if you want a slightly lighter dark */
+}
+body.dark-mode nav a {
+  color: #fff !important;
+}
+
+body.dark-mode .hero,
+body.dark-mode .about,
+body.dark-mode .projects,
+body.dark-mode .blog-section,
+body.dark-mode .contact-section {
+  background-color: #111;
+  color: #fff;
+}
+
+/* Nav link styling */
+nav a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode nav a {
+  color: #fff;
+}
+
+nav ul {
   list-style: none;
   display: flex;
   gap: 30px;
-  margin-right: 80px;
+  margin-right: 100px; /* create space for toggle */
   padding-right: 20px;
-}
-
-nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  position: relative;
-  transition: color 0.3s ease;
 }
 
 nav a::after {
@@ -64,10 +151,153 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* Contact section */
+#contact {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #fff;
+  padding: 100px 50px;
+  text-align: center;
+}
 
-.hero-buttons {
-display: flex;
+#contact h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+#contact .contact-form {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+#contact .contact-form input {
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+#contact .contact-form button {
+  background-color: #ff3399;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+#contact .contact-form button:hover {
+  background-color: #e62e88;
+}
+
+body.dark-mode #contact {
+  background-color: #121212;
+}
+
+/* Footer */
+.footer {
+  background-color: #fceef4;
+  text-align: center;
+  padding: 30px 20px;
+  color: #555;
+  font-size: 14px;
+  margin-top: 50px;
+}
+
+body.dark-mode .footer {
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
+.footer-socials {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.footer-socials a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #ff3399;
+}
+
+body.dark-mode .footer-socials a {
+  color: #ccc;
+}
+
+body.dark-mode .footer-socials a:hover {
+  color: #ff3399;
+}
+
+body.dark-mode .project-card,
+body.dark-mode .blog-card,
+body.dark-mode .contact-form input,
+body.dark-mode .contact-form button {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border-color: #444;
+}
+
+body.dark-mode .progress-percent,
+body.dark-mode .footer {
+  color: #ffffff !important;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode li,
+body.dark-mode a,
+body.dark-mode span {
+  color: #ffffff !important;
+}
+
+
+.footer-socials {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.footer-socials a {
+  color: #555;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: #ff3399;
+}
+
+body.dark-mode .footer-socials a {
+  color: #ccc;
+}
+
+body.dark-mode .footer-socials a:hover {
+  color: #ff3399;
+}
+
+    
+    .hero-buttons {
+    display: flex;
+    gap: 20px;
   }
 
   .btn-learn,
@@ -276,7 +506,7 @@ display: flex;
   }
 
     .blog-section {
-    background: #f9cee7;
+    background: #fde8f0;
     padding: 100px 50px;
     text-align: center;
   }
@@ -341,56 +571,55 @@ display: flex;
     border-color: #ff3399;
   }
 
- /* Contact section as full page */
-#contact {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #fff;
-  padding: 100px 50px;
-  text-align: center;
-}
-
-#contact h2 {
-  font-size: 40px;
-  margin-bottom: 20px;
-}
-
-#contact .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-#contact .contact-form input {
-  padding: 15px 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-}
-
-#contact .contact-form button {
-  background-color: #ff3399;
-  color: white;
-  padding: 15px;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s ease;
-}
-
-#contact .contact-form button:hover {
-  background-color: #e62e88;
-}
-
-body.dark-mode #contact {
-  background-color: #1a1a1a;
-}
+  .contact-section {
+    background: white;
+    padding: 100px 50px;
+    text-align: center;
+  }
+  .contact-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .contact-section p {
+    color: #555;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .contact-section .line {
+    width: 60px;
+    height: 3px;
+    background-color: #ff3399;
+    margin: 20px auto;
+  }
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .contact-form input {
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  .contact-form button {
+    background-color: #ff3399;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  .contact-form button:hover {
+    background-color: #e62e88;
+  }
 
 
   </style>
