@@ -1,63 +1,96 @@
-// Typing animation using JS (if needed dynamically)
+// DARK MODE + TYPING EFFECT + FORM VALIDATION
+
 document.addEventListener("DOMContentLoaded", () => {
-    const textElement = document.querySelector(".typing-text");
-    const text = "I'm a Web Developer & Aspiring Data Scientist Lilian Imma";
-    let index = 0;
-  
-    if (textElement) {
-      textElement.textContent = ""; // Clear initial content before typing
-  
-      function type() {
-        if (index < text.length) {
-          textElement.textContent += text.charAt(index);
-          index++;
-          setTimeout(type, 100);
-        }
+  // ========================
+  // TYPING EFFECT
+  // ========================
+  const textElement = document.querySelector(".typing-text");
+  const text = "I'm Web Developer Lilian Imma";
+  let index = 0;
+
+  if (textElement) {
+    textElement.textContent = "";
+    const type = () => {
+      if (index < text.length) {
+        textElement.textContent += text.charAt(index);
+        index++;
+        setTimeout(type, 100);
       }
-  
-      type();
+    };
+    type();
+  }
+
+  // ========================
+  // CONTACT FORM VALIDATION
+  // ========================
+  const form = document.querySelector(".contact-form");
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      const name = form.querySelector("input[name='name']").value.trim();
+      const email = form.querySelector("input[name='email']").value.trim();
+      const phone = form.querySelector("input[name='phone']").value.trim();
+
+      const nameRegex = /^[A-Za-z]+\s[A-Za-z]+$/;
+      const phoneRegex = /^\d+$/;
+
+      if (!nameRegex.test(name)) {
+        alert("Please enter your full name (first and last name). Letters only.");
+        e.preventDefault();
+        return;
+      }
+
+      if (!email.includes("@")) {
+        alert("Please enter a valid email address.");
+        e.preventDefault();
+        return;
+      }
+
+      if (!phoneRegex.test(phone)) {
+        alert("Phone number must contain digits only.");
+        e.preventDefault();
+        return;
+      }
+    });
+  }
+
+  // ========================
+  // DARK MODE TOGGLE
+  // ========================
+  const toggleBtn = document.querySelector(".toggle-switch");
+  const icon = toggleBtn?.querySelector("i");
+
+  const enableDarkMode = () => {
+    document.body.classList.add("dark-mode");
+    document.body.style.backgroundColor = "#111";
+    if (icon) {
+      icon.classList.remove("fa-moon");
+      icon.classList.add("fa-sun");
     }
-  
-    // Contact form validation
-    const form = document.querySelector(".contact-form");
-  
-    if (form) {
-      form.addEventListener("submit", (e) => {
-        const name = form.querySelector("input[name='name']");
-        const email = form.querySelector("input[name='email']");
-        const phone = form.querySelector("input[name='phone']");
-  
-        const nameValue = name.value.trim();
-        const emailValue = email.value.trim();
-        const phoneValue = phone.value.trim();
-  
-        // Name should contain only letters and two words
-        const nameRegex = /^[A-Za-z]+\s[A-Za-z]+$/;
-        if (!nameRegex.test(nameValue)) {
-          alert("Please enter your full name (first and last) using only letters.");
-          e.preventDefault();
-          return;
-        }
-  
-        // Email must contain @
-        if (!emailValue.includes("@")) {
-          alert("Please enter a valid email address.");
-          e.preventDefault();
-          return;
-        }
-  
-        // Phone should be numbers only
-        if (!/^\d+$/.test(phoneValue)) {
-          alert("Phone number must contain digits only.");
-          e.preventDefault();
-          return;
-        }
-      });
+  };
+
+  const disableDarkMode = () => {
+    document.body.classList.remove("dark-mode");
+    document.body.style.backgroundColor = "#fceef4";
+    if (icon) {
+      icon.classList.remove("fa-sun");
+      icon.classList.add("fa-moon");
     }
-  });
+  };
 
-  
+  if (toggleBtn && icon) {
+    toggleBtn.addEventListener("click", () => {
+      const isDark = document.body.classList.toggle("dark-mode");
+      isDark ? enableDarkMode() : disableDarkMode();
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  }
 
-
-
-  
+  // Load saved theme on page load
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    enableDarkMode();
+  } else {
+    disableDarkMode();
+  }
+});
