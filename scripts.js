@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   });
-const toggle = document.getElementById('darkToggle');
+
+  const toggle = document.getElementById('darkToggle');
   const emoji = document.getElementById('emoji');
 
   toggle.addEventListener('change', () => {
@@ -67,6 +68,8 @@ const toggle = document.getElementById('darkToggle');
       document.body.classList.remove('dark-mode');
     }
   });
+
+
 
 
   
