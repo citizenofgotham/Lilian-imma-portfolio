@@ -63,96 +63,6 @@ nav a:hover {
 nav a:hover::after {
   width: 100%;
 }
-    /* Toggle styles */
-    .toggle-switch {
-      position: relative;
-      display: inline-block;
-      width: 60px;
-      height: 34px;
-      margin-bottom: 2rem;
-    }
-
-    .toggle-switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      background-color: #ccc;
-      border-radius: 34px;
-      position: relative;
-      cursor: pointer;
-      transition: background-color 0.4s;
-    }
-
-    .thumb {
-      height: 30px;
-      width: 30px;
-      background-color: white;
-      border-radius: 50%;
-      position: absolute;
-      top: 2px;
-      left: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      transition: transform 0.4s;
-      box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
-    }
-
-    input:checked + .slider {
-      background-color: #333;
-    }
-
-    input:checked + .slider .thumb {
-      transform: translateX(26px);
-    }
-
-    /* Footer */
-    footer {
-      background-color: #eee;
-      color: #333;
-      text-align: center;
-      padding: 1rem;
-    }
-
-    /* Dark mode styles */
-
-    body {
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
-
-    body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode p,
-body.dark-mode a,
-body.dark-mode li,
-body.dark-mode .nav-link {
-  color: #f1f1f1;
-}
-
-body.dark-mode nav {
-  background-color: #1a1a1a;
-  color: #f1f1f1;
-}
-body.dark-mode .hero,
-body.dark-mode .card {
-  background-color: #1f1f1f;
-  color: #f1f1f1;
-}
-
-    body.dark-mode {
-      background-color: #121212;
-      color: #f1f1f1;
-    }
-
-    body.dark-mode footer {
-      background-color: #1e1e1e;
-      color: #aaa;
-    }
 
 
 .hero-buttons {
@@ -497,12 +407,7 @@ body.dark-mode #contact {
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-<label class="toggle-switch">
-  <input type="checkbox" id="darkToggle">
-  <span class="slider">
-    <span class="thumb" id="emoji">🌞</span>
-  </span>
-</label>
+
 </header>
 
   <section class="hero" id="home">
