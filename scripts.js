@@ -56,19 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  const toggle = document.getElementById('darkToggle');
-  const emoji = document.getElementById('emoji');
-
-  toggle.addEventListener('change', () => {
-    if (toggle.checked) {
-      emoji.textContent = '🌚';
-      document.body.classList.add('dark-mode');
-    } else {
-      emoji.textContent = '🌞';
-      document.body.classList.remove('dark-mode');
-    }
-  });
-
+  
 
 
 
